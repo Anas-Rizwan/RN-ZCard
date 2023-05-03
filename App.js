@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import MembershipCard from './src/Screens/Membership/MembershipCard'
+import Membership from './src/Screens/Membership/Membership'
 import WebViewComponent from './src/Screens/Web/WebView'
 
 const App = () => {
   return (
-    <MembershipCard />
+    <Membership />
   )
 }
 

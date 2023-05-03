@@ -1,17 +1,20 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Modal } from 'react-native';
 import { moderateScale, moderateVerticalScale, scale } from 'react-native-size-matters';
+import MembershipCancel from './MembershipCancel';
+import styles from './styles';
 
 
 // create a component
-const MembershipDetails = ({ modalitem , changeState}) => {
-    console.log('changeState',changeState);
+const MembershipDetails = ({ modalitem, changeState }) => {
+    console.log('changeState', changeState);
+    const [cancelModal, setcancelModal] = useState(false)
     return (
         <View style={styles.signup_container}>
             <View style={styles.Header_view}>
-                <TouchableOpacity onPress={()=>{changeState(false)}}>
-                <Image source={require('../../Assets/arrow.png')} tintColor="black" style={{ marginLeft: moderateScale(25), }} />
+                <TouchableOpacity onPress={() => { changeState(false) }}>
+                    <Image source={require('../../Assets/arrow.png')} tintColor="black" style={{ marginLeft: moderateScale(25), }} />
                 </TouchableOpacity>
                 <Image source={require('../../Assets/logo_zimo.png')} tintColor="black" />
                 <Image source={require('../../Assets/bag.png')} style={{ marginRight: moderateScale(25), }} />
@@ -196,7 +199,7 @@ const MembershipDetails = ({ modalitem , changeState}) => {
                     <Text style={styles.promtion_text}>CURRENT PROMOTIONS AND OFFERS</Text>
                 </View>
                 <View style={styles.cancel_btn}>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={() => { setcancelModal(true) }}>
                         <Text style={{
                             alignSelf: 'center',
                             fontSize: scale(8),
@@ -206,99 +209,25 @@ const MembershipDetails = ({ modalitem , changeState}) => {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
+            <View>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={cancelModal}
+                    onRequestClose={() => {
+                        setcancelModal(!cancelModal);
+                    }}
+                >
+                    <MembershipCancel modalitem={modalitem} setcancelModal={setcancelModal} />
+                </Modal>
+
+            </View>
         </View>
     );
 };
 
 // define your styles
-const styles = StyleSheet.create({
-    signup_container: {
-        flex: 1,
-    },
 
-    Header_view: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: moderateVerticalScale(49),
-        borderBottomWidth: 0.5,
-    },
-    text_view: {
-        marginLeft: moderateScale(25),
-        marginTop: moderateVerticalScale(9),
-    },
-    signup_card_view: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-    },
-    signup_card_img: {
-        width: moderateScale(142),
-        height: moderateVerticalScale(150),
-        // marginLeft: moderateScale(25),
-        marginTop: moderateVerticalScale(28),
-        borderRadius: moderateVerticalScale(142 / 15),
-        // flex: 1,
-        // backgroundColor: 'rgba(0,0,0,.8)',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-    },
-    signup_card_img_2: {
-        width: moderateScale(143),
-        height: moderateVerticalScale(42),
-        // tintColor:'black'
-    },
-    bg_img_right: {
-        position: 'absolute',
-        width: moderateScale(204),
-        height: moderateVerticalScale(100),
-        alignSelf: 'flex-end',
-        marginTop: moderateVerticalScale(100),
-        tintColor: 'rgba(0,0,0,.4)'
-    },
-    bg_text: {
-        position: 'absolute',
-        top: moderateVerticalScale(125),
-        left: moderateScale(80),
-        fontFamily: 'Lato-Regular',
-        fontSize: scale(42),
-        color: "rgba(0,0,0,.04)",
-        alignSelf: 'center',
-    },
-    bg_img_left: {
-        position: 'absolute',
-        width: moderateScale(204),
-        height: moderateVerticalScale(100),
-        bottom: moderateVerticalScale(60),
-        tintColor: 'rgba(0,0,0,.4)'
-    },
-    modal_text_view: {
-        marginTop: moderateVerticalScale(20),
-        width: '60%',
-        alignSelf: 'center',
-    },
-    paragraph_text: {
-        alignSelf: 'center',
-        textAlign: 'center',
-        marginTop: moderateVerticalScale(10),
-        fontFamily: 'Lato-Regular',
-        fontSize: scale(7),
-        color: '#000'
-    },
-    promtion_text: {
-        alignSelf: 'center',
-        fontSize: scale(8),
-        fontFamily: 'Lato-Regular',
-        color: 'black',
-    },
-    cancel_btn: {
-        alignSelf: 'center',
-        width: moderateScale(98),
-        marginTop: moderateVerticalScale(199),
-        marginBottom: moderateVerticalScale(43),
-
-    },
-});
 
 //make this component available to the app
 export default MembershipDetails;
