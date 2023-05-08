@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { moderateScale, moderateVerticalScale, scale } from 'react-native-size-matters';
 import styles from './styles';
+import CardComponent from '../../ReuseableComponent/CardComponent';
 
 // create a component
 const MembershipCancel = ({ modalitem, setcancelModal }) => {
@@ -16,8 +17,8 @@ const MembershipCancel = ({ modalitem, setcancelModal }) => {
                     >
                         <Image source={require('../../Assets/cross.png')} />
                     </TouchableOpacity>
-                    <Text style={styles.Top_text}>{modalitem.title} MEMBERSHIP</Text>
-                    
+                    <Text style={styles.Top_text}>{modalitem.title}  MEMBERSHIP</Text>
+
                 </View>
                 <ScrollView
                     showsVerticalScrollIndicator={false}
@@ -30,10 +31,24 @@ const MembershipCancel = ({ modalitem, setcancelModal }) => {
                     </View>
                     <View>
                         <View style={styles.image_view}>
-                            <Image source={modalitem.img} style={styles.image} />
+                            <CardComponent
+                                off_img={modalitem.number_img}
+                                logo_img={modalitem.logo_img}
+                                zimo_img={modalitem.zimo_img}
+                                card_img={modalitem.card_img}
+                                card_view_style={styles.cancel_card_view_style}
+                                card_top_view_style={styles.cancel_card_top_view_style}
+                                off_img_style={modalitem.id == 1 ? styles.cancel_off_10img_style : styles.cancel_off_20img_style}
+                                logo_img_style={styles.cancel_logo_img_style}
+                                zimo_img_view_style={styles.cancel_zimo_img_view_style}
+                                zimo_img_style={styles.cancel_zimo_img_style}
+                                card_img_view_style={styles.cancel_card_img_view_style}
+                                card_img_style={styles.cancel_card_img_style}
+                            />
+                            {/* <Image source={modalmodalitem.img} style={styles.image} /> */}
                         </View>
                         <View style={styles.content_text_view}>
-                            <View style={styles.modal_text_view}>
+                            <View style={styles.modal_cancel_text_view}>
                                 <Text style={styles.content_text}
                                 >FOLLOW THE STEPS TO CANCEL YOUR GOLD MEMBERSHIP
                                 </Text>
@@ -41,7 +56,7 @@ const MembershipCancel = ({ modalitem, setcancelModal }) => {
                             </View>
 
 
-                            <View style={styles.modal_text_view}>
+                            <View style={styles.modal_cancel_text_view}>
                                 <Text
                                     style={styles.content_text}
                                 >YOU WILL NO LONGER BE ABLE TO RECEIVE YOUR EXCLUSIVE 10% DISCOUNT ON ALL YOUR TICKET ENTRY PURCHASES.</Text>
@@ -51,7 +66,7 @@ const MembershipCancel = ({ modalitem, setcancelModal }) => {
                                     WITH YOUR {modalitem.title} MEMBERSHIP.
                                 </Text>
                             </View>
-                            <View style={styles.modal_text_view}>
+                            <View style={styles.modal_cancel_text_view}>
                                 <Text
                                     style={styles.content_text}
                                 >JUST AS A QUICK REMINDER, CANCELLING YOUR {modalitem.title} MEMBERSHIP MEANS
@@ -85,7 +100,7 @@ const MembershipCancel = ({ modalitem, setcancelModal }) => {
 
                         <Text style={styles.content_text}>ARE YOU SURE YOU WANT TO CANCEL YOUR GOLD MEMBERSHIP?</Text>
 
-                        <View style={styles.off_view}>
+                        <View style={styles.btn_view}>
                             <TouchableOpacity>
                                 <Text style={styles.keep_btn_text}>KEEP</Text>
                                 <Text style={[styles.keep_btn_text, { fontSize: scale(8), }]}>MEMBERSHIP</Text>

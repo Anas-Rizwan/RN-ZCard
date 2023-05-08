@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Modal } fr
 import { moderateScale, moderateVerticalScale, scale } from 'react-native-size-matters';
 import MembershipCancel from './MembershipCancel';
 import styles from './styles';
+import CardComponent from '../../ReuseableComponent/CardComponent';
 
 
 // create a component
@@ -19,14 +20,14 @@ const MembershipDetails = ({ modalitem, changeState }) => {
                 <Image source={require('../../Assets/logo_zimo.png')} tintColor="black" />
                 <Image source={require('../../Assets/bag.png')} style={{ marginRight: moderateScale(25), }} />
             </View>
-            {/* <Text style={styles.bg_text}>MEMBERSHIP</Text> */}
-            <Image source={require('../../Assets/img_right.png')} style={styles.bg_img_right} />
-            <Image source={require('../../Assets/img_left.png')} style={styles.bg_img_left} />
+
+            <Image source={modalitem.id === 1 ? require('../../Assets/ten.png') : require('../../Assets/twenty.png')} style={styles.bg_detail_img_left} />
             <View style={styles.line}></View>
 
             <ScrollView showsVerticalScrollIndicator={false} >
                 <View style={styles.text_view}>
                     <Text style={{
+                        letterSpacing: 1,
                         fontFamily: 'Lato-Regular',
                         fontSize: scale(18),
                         color: modalitem.id === 1 ? "#BE9F56" : '#DEDDDB',
@@ -34,22 +35,39 @@ const MembershipDetails = ({ modalitem, changeState }) => {
                 </View>
                 <View style={styles.signup_card_view}>
                     <View>
-                        <Image source={modalitem.img} style={styles.signup_card_img} />
+                    <CardComponent
+                                    // off_img={modalitem.number_img}
+                                    logo_img={modalitem.logo_img}
+                                    zimo_img={modalitem.zimo_img}
+                                    card_img={modalitem.card_img}
+                                    card_view_style={styles.detail_card_view_style}
+                                    card_top_view_style={styles.detail_card_top_view_style}
+                                    // off_img_style={modalitem.id == 1 ? styles.detail_off_10img_style : styles.detail_off_20img_style}
+                                    logo_img_style={styles.detail_logo_img_style}
+                                    zimo_img_view_style={styles.detail_zimo_img_view_style}
+                                    zimo_img_style={styles.detail_zimo_img_style}
+                                    card_img_view_style={styles.detail_card_img_view_style}
+                                    card_img_style={styles.detail_card_img_style}
+                                />
+                        {/* <Image source={modalitem.detail_img} style={styles.signup_card_img} /> */}
                     </View>
                     <View>
                         <Text style={{
+                            letterSpacing: 2,
                             fontFamily: 'Lato-Regular',
-                            fontSize: scale(28),
+                            fontSize: scale(32),
                             color: modalitem.id === 1 ? "rgba(190,159,86,.3)" : '#DEDDDB',
                         }}>{modalitem.title}</Text>
                         <Image style={[styles.signup_card_img_2,
                         { tintColor: modalitem.id === 1 ? "#BE9F56" : '#C1BFBC' }]} source={require('../../Assets/card.png')} />
                         <Text style={{
+                            letterSpacing: 2,
                             alignSelf: 'flex-end',
                             fontFamily: 'Lato-Regular',
-                            fontSize: scale(14),
+                            fontSize: scale(16),
                             color: modalitem.id === 1 ? "rgba(190,159,86,.3)" : '#DEDDDB',
                             marginTop: moderateVerticalScale(6.5),
+                            marginRight: moderateScale(-7),
                         }}>{modalitem.title} MEMBER</Text>
                     </View>
 
@@ -57,7 +75,7 @@ const MembershipDetails = ({ modalitem, changeState }) => {
 
                 {
                     modalitem.id === 1 ?
-                        <View style={styles.modal_text_view}>
+                        <View style={styles.modal_detail_text_view}>
                             <View>
                                 <Text
                                     style={styles.paragraph_text}
@@ -65,8 +83,7 @@ const MembershipDetails = ({ modalitem, changeState }) => {
                                     services with your Gold Membership.
                                 </Text>
                                 <Text
-                                    style={styles.paragraph_text}
-                                >You have access to all ZIMO benefits and promotions. You will
+                                    style={styles.paragraph_text}>You have access to all ZIMO benefits and promotions. You will
                                     receive significant discounts and offers throughout your
                                     Membership.
 
@@ -120,7 +137,7 @@ const MembershipDetails = ({ modalitem, changeState }) => {
                             </View>
                         </View>
                         :
-                        <View style={styles.modal_text_view}>
+                        <View style={styles.modal_detail_text_view}>
                             <View>
                                 <Text
                                     style={styles.paragraph_text}
@@ -193,7 +210,7 @@ const MembershipDetails = ({ modalitem, changeState }) => {
                             </View>
                         </View>
                 }
-                <View style={{ width: moderateScale(308), backgroundColor: 'grey', height: 1, alignSelf: 'center', marginTop: moderateVerticalScale(25), marginBottom: moderateVerticalScale(19), }}></View>
+                <View style={{ width: moderateScale(290), backgroundColor: 'grey', height: 1, alignSelf: 'center', marginTop: moderateVerticalScale(25), marginBottom: moderateVerticalScale(19), }}></View>
 
                 <View >
                     <Text style={styles.promtion_text}>CURRENT PROMOTIONS AND OFFERS</Text>

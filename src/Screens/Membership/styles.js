@@ -19,12 +19,13 @@ export default styles = StyleSheet.create({
     },
     bg_text: {
         position: 'absolute',
-        top: moderateVerticalScale(125),
-        left: moderateScale(80),
+        top: moderateVerticalScale(135),
+        left: moderateScale(57),
         fontFamily: 'Lato-Regular',
         fontSize: scale(42),
-        color: "rgba(0,0,0,.04)",
+        color: "rgba(0,0,0,.06)",
         alignSelf: 'center',
+        letterSpacing: 2,
     },
     bg_img_left: {
         position: 'absolute',
@@ -64,24 +65,73 @@ export default styles = StyleSheet.create({
         // backgroundColor: 'red',
     },
     Card_image: {
-        width: moderateScale(311),
-        height: moderateVerticalScale(350),
+        width: moderateScale(300),
+        height: moderateVerticalScale(330),
         borderRadius: moderateVerticalScale(331 / 20),
+    },
+    card_view_style: {
+        backgroundColor: 'black',
+        width: moderateScale(300),
+        height: moderateVerticalScale(340),
+        borderRadius: moderateVerticalScale(331 / 15),
+    },
+    card_top_view_style: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignItems: 'center',
+    },
+    off_10img_style: {
+        marginTop: moderateVerticalScale(14),
+        tintColor: 'white',
+        width: moderateScale(51),
+        height: moderateVerticalScale(76),
+        marginLeft: moderateScale(14),
+    },
+    off_20img_style: {
+        marginTop: moderateVerticalScale(14),
+        tintColor: 'white',
+        width: moderateScale(55),
+        height: moderateVerticalScale(73.5),
+        marginLeft: moderateScale(14),
+    },
+    logo_img_style: {
+        marginTop: moderateVerticalScale(21),
+        width: moderateScale(106),
+        height: moderateVerticalScale(26),
+        marginRight: moderateScale(21.5),
+    },
+    zimo_img_view_style: {
+        alignSelf: 'center',
+        marginTop: moderateVerticalScale(30.7),
+    },
+    zimo_img_style: {
+        width: moderateScale(200),
+        height: moderateVerticalScale(114),
+    },
+    card_img_view_style: {
+        marginTop: moderateVerticalScale(9.7),
+    },
+    card_img_style: {
+        width: moderateScale(300),
+        height: moderateVerticalScale(65),
     },
     Card_Discount_Text: {
         color: "#000000",
         fontFamily: 'Lato-Regular',
         fontSize: scale(12),
         marginBottom: moderateVerticalScale(17),
+        letterSpacing: 1,
     },
     Card_Price: {
+        letterSpacing: 1,
         fontFamily: 'Lato-Regular',
         fontSize: scale(12),
-        marginTop: moderateVerticalScale(8),
-        marginBottom: moderateVerticalScale(9),
+        marginTop: moderateVerticalScale(19),
         color: "#000000",
     },
     Card_btn_Text: {
+        marginTop: moderateVerticalScale(13),
+        letterSpacing: 1,
         fontFamily: 'Lato-Regular',
         fontSize: scale(12),
         color: "#000000",
@@ -92,7 +142,7 @@ export default styles = StyleSheet.create({
         position: 'absolute',
         top: '25%',
         backgroundColor: "#000000",
-        width: moderateScale(10),
+        width: moderateScale(8),
         height: moderateVerticalScale(371),
         borderTopRightRadius: moderateScale(15),
         borderBottomRightRadius: moderateScale(15),
@@ -106,7 +156,7 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
     },
     modalView: {
-        flex: .9,
+        flex: .935,
         width: moderateScale(325),
         borderRadius: moderateScale(325 / 15),
         backgroundColor: '#8F8F8F',
@@ -119,6 +169,7 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
     },
     header_content: {
+        letterSpacing: 1,
         fontFamily: 'Lato-Regular',
         fontSize: scale(12),
         marginLeft: moderateScale(25),
@@ -130,26 +181,73 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
     },
-    image_view: {
-        marginTop: moderateVerticalScale(10),
-        alignItems: 'center',
+    modal_card_view_style: {
+        backgroundColor: 'black',
+        width: moderateScale(170),
+        height: moderateVerticalScale(195),
+        borderRadius: moderateVerticalScale(170 / 10),
     },
-    image: {
-        width: moderateScale(189),
-        height: moderateVerticalScale(200),
-        borderRadius: moderateScale(189 / 12),
+    modal_card_top_view_style: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignItems: 'center',
     },
+    modal_off_10img_style: {
+        marginTop: moderateVerticalScale(8),
+        tintColor: 'white',
+        width: moderateScale(29),
+        height: moderateVerticalScale(27),
+        marginLeft: moderateScale(8),
+    },
+    modal_off_20img_style: {
+        marginTop: moderateVerticalScale(8),
+        tintColor: 'white',
+        width: moderateScale(33),
+        height: moderateVerticalScale(27),
+        marginLeft: moderateScale(8),
+    },
+    modal_logo_img_style: {
+        marginTop: moderateVerticalScale(12),
+        width: moderateScale(61),
+        height: moderateVerticalScale(16),
+        marginRight: moderateScale(12.5),
+    },
+    modal_zimo_img_view_style: {
+        alignSelf: 'center',
+        marginTop: moderateVerticalScale(30.7),
+    },
+    modal_zimo_img_style: {
+        width: moderateScale(117),
+        height: moderateVerticalScale(68),
+    },
+    modal_card_img_view_style: {
+        marginTop: moderateVerticalScale(9.7),
+    },
+    modal_card_img_style: {
+        width: moderateScale(170),
+        height: moderateVerticalScale(35.5),
+    },
+    // image_view: {
+    //     marginTop: moderateVerticalScale(10),
+    //     alignItems: 'center',
+    // },
+    // image: {
+    //     width: moderateScale(189),
+    //     height: moderateVerticalScale(200),
+    //     borderRadius: moderateScale(189 / 12),
+    // },
     modal_text_view: {
-        width: '70%',
+        width: moderateScale(245),
         alignSelf: 'center',
     },
     modal_paragraph_text: {
-        letterSpacing: 0.5,
-        alignSelf: 'center',
+        letterSpacing: .5,
+        alignItems: 'flex-start',
         textAlign: 'center',
         marginTop: moderateVerticalScale(10),
         fontFamily: 'Lato-Regular',
-        fontSize: scale(7),
+        fontSize: scale(6),
+        textTransform: 'uppercase',
         color: '#fff'
     },
     off_view: {
@@ -158,12 +256,45 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: moderateVerticalScale(60),
     },
-    off_card_img: {
+    modal_bottom_card_view_style: {
+        backgroundColor: 'black',
         width: moderateScale(142),
         height: moderateVerticalScale(150),
-        borderTopRightRadius: moderateScale(10),
-        borderTopLeftRadius: moderateScale(10),
+        borderTopLeftRadius: moderateVerticalScale(190 / 15),
+        borderTopRightRadius: moderateVerticalScale(190 / 15),
     },
+    modal_bottom_card_top_view_style: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignItems: 'center',
+    },
+    modal_bottom_logo_img_style: {
+        marginTop: moderateVerticalScale(9),
+        width: moderateScale(45),
+        height: moderateVerticalScale(11),
+        marginRight: moderateScale(9),
+    },
+    modal_bottom_zimo_img_view_style: {
+        alignSelf: 'center',
+        marginTop: moderateVerticalScale(30.7),
+    },
+    modal_bottom_zimo_img_style: {
+        width: moderateScale(86),
+        height: moderateVerticalScale(48),
+    },
+    modal_bottom_card_img_view_style: {
+        marginTop: moderateVerticalScale(9.7),
+    },
+    modal_bottom_card_img_style: {
+        width: moderateScale(142),
+        height: moderateVerticalScale(29.5),
+    },
+    // off_card_img: {
+    //     width: moderateScale(142),
+    //     height: moderateVerticalScale(150),
+    //     borderTopRightRadius: moderateScale(10),
+    //     borderTopLeftRadius: moderateScale(10),
+    // },
     off_card_btn: {
         backgroundColor: 'black',
         width: moderateScale(142),
@@ -179,92 +310,111 @@ export default styles = StyleSheet.create({
         marginTop: moderateVerticalScale(211),
         marginBottom: moderateVerticalScale(32),
     },
-    
+
     // Membership Detail Style
-        signup_container: {
-            flex: 1,
-            backgroundColor: 'white',
-        },
-        Header_view: {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            height: moderateVerticalScale(49),
-            borderBottomWidth: 0.5,
-        },
-        text_view: {
-            marginLeft: moderateScale(25),
-            marginTop: moderateVerticalScale(9),
-        },
-        signup_card_view: {
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-        },
-        signup_card_img: {
-            width: moderateScale(142),
-            height: moderateVerticalScale(150),
-            marginTop: moderateVerticalScale(28),
-            borderRadius: moderateVerticalScale(142 / 15),
-    
-        },
-        signup_card_img_2: {
-            width: moderateScale(143),
-            height: moderateVerticalScale(42),
-        },
-        bg_img_right: {
-            position: 'absolute',
-            width: moderateScale(204),
-            height: moderateVerticalScale(100),
-            alignSelf: 'flex-end',
-            marginTop: moderateVerticalScale(100),
-            tintColor: 'rgba(0,0,0,.4)'
-        },
-        bg_text: {
-            position: 'absolute',
-            top: moderateVerticalScale(125),
-            left: moderateScale(80),
-            fontFamily: 'Lato-Regular',
-            fontSize: scale(42),
-            color: "rgba(0,0,0,.04)",
-            alignSelf: 'center',
-        },
-        bg_img_left: {
-            position: 'absolute',
-            width: moderateScale(204),
-            height: moderateVerticalScale(100),
-            bottom: moderateVerticalScale(60),
-            tintColor: 'rgba(0,0,0,.4)'
-        },
-        modal_text_view: {
-            marginTop: moderateVerticalScale(20),
-            width: '60%',
-            alignSelf: 'center',
-        },
-        paragraph_text: {
-            letterSpacing: 0.5,
-            alignSelf: 'center',
-            textAlign: 'center',
-            marginTop: moderateVerticalScale(10),
-            fontFamily: 'Lato-Regular',
-            fontSize: scale(7),
-            color: '#000'
-        },
-        promtion_text: {
-            alignSelf: 'center',
-            letterSpacing: 0.5,
-            fontSize: scale(8),
-            fontFamily: 'Lato-Regular',
-            color: 'black',
-        },
-        cancel_btn: {
-            alignSelf: 'center',
-            width: moderateScale(98),
-            marginTop: moderateVerticalScale(395),
-            marginBottom: moderateVerticalScale(43),
-    
-        },
-    
+    signup_container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
+    Header_view: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: moderateVerticalScale(49),
+        borderBottomWidth: 0.5,
+    },
+    text_view: {
+        marginLeft: moderateScale(25),
+        marginTop: moderateVerticalScale(9),
+    },
+    signup_card_view: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        marginTop: moderateVerticalScale(20),
+    },
+    detail_card_view_style: {
+        backgroundColor: 'black',
+        width: moderateScale(125),
+        height: moderateVerticalScale(145),
+        borderRadius: moderateVerticalScale(125 / 10),
+    },
+    detail_card_top_view_style: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignItems: 'center',
+    },
+    detail_logo_img_style: {
+        marginTop: moderateVerticalScale(9),
+        width: moderateScale(45),
+        height: moderateVerticalScale(11),
+        marginRight: moderateScale(9),
+    },
+    detail_zimo_img_view_style: {
+        alignSelf: 'center',
+        marginTop: moderateVerticalScale(30.7),
+    },
+    detail_zimo_img_style: {
+        width: moderateScale(89),
+        height: moderateVerticalScale(50),
+    },
+    detail_card_img_view_style: {
+        marginTop: moderateVerticalScale(9.7),
+    },
+    detail_card_img_style: {
+        width: moderateScale(125),
+        height: moderateVerticalScale(26.5),
+    },
+    // signup_card_img: {
+    //     width: moderateScale(112),
+    //     height: moderateVerticalScale(120),
+    //     marginTop: moderateVerticalScale(28),
+    //     borderRadius: moderateVerticalScale(142 / 15),
+
+    // },
+    signup_card_img_2: {
+        width: moderateScale(153),
+        height: moderateVerticalScale(42),
+    },
+    bg_detail_img_left: {
+        position: 'absolute',
+        left: 20,
+        width: moderateScale(160),
+        height: moderateVerticalScale(160),
+        bottom: moderateVerticalScale(60),
+        tintColor: 'rgba(0,0,0,.15)'
+
+    },
+    modal_detail_text_view: {
+        marginTop: moderateVerticalScale(20),
+        width: moderateScale(224),
+        alignSelf: 'center',
+    },
+    paragraph_text: {
+        textTransform: 'uppercase',
+        letterSpacing: 0.5,
+        alignSelf: 'center',
+        textAlign: 'center',
+        marginTop: moderateVerticalScale(10),
+        fontFamily: 'Lato-Regular',
+        fontSize: scale(6),
+        color: '#000'
+    },
+    promtion_text: {
+        alignSelf: 'center',
+        letterSpacing: 0.5,
+        fontSize: scale(8),
+        fontFamily: 'Lato-Regular',
+        color: 'black',
+    },
+    cancel_btn: {
+        alignSelf: 'center',
+        width: moderateScale(98),
+        marginTop: moderateVerticalScale(395),
+        marginBottom: moderateVerticalScale(43),
+
+    },
+
 
     // Membership Cancel Style
     centeredView: {
@@ -293,22 +443,69 @@ export default styles = StyleSheet.create({
         marginLeft: moderateScale(20),
     },
     Top_text: {
+        letterSpacing: 1,
         fontFamily: 'Lato-Regular',
         fontSize: scale(12),
-        marginLeft: moderateScale(60),
+        marginLeft: moderateScale(55),
         color: '#fff',
     },
-    image_view: {
-        marginTop: moderateVerticalScale(11),
-        alignItems: 'center',
-    },
-    image: {
+    cancel_card_view_style: {
+        backgroundColor: 'black',
         width: moderateScale(189),
         height: moderateVerticalScale(200),
-        borderRadius: moderateScale(189 / 12),
+        borderRadius: moderateVerticalScale(170 / 15),
     },
-    modal_text_view: {
-        width: '75%',
+    cancel_card_top_view_style: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignItems: 'center',
+    },
+    cancel_off_10img_style: {
+        marginTop: moderateVerticalScale(8),
+        tintColor: 'white',
+        width: moderateScale(29),
+        height: moderateVerticalScale(27),
+        marginLeft: moderateScale(8),
+    },
+    cancel_off_20img_style: {
+        marginTop: moderateVerticalScale(8),
+        tintColor: 'white',
+        width: moderateScale(33),
+        height: moderateVerticalScale(27),
+        marginLeft: moderateScale(8),
+    },
+    cancel_logo_img_style: {
+        marginTop: moderateVerticalScale(12),
+        width: moderateScale(61),
+        height: moderateVerticalScale(16),
+        marginRight: moderateScale(12.5),
+    },
+    cancel_zimo_img_view_style: {
+        alignSelf: 'center',
+        marginTop: moderateVerticalScale(30.7),
+    },
+    cancel_zimo_img_style: {
+        width: moderateScale(119),
+        height: moderateVerticalScale(67),
+    },
+    cancel_card_img_view_style: {
+        marginTop: moderateVerticalScale(9.7),
+    },
+    cancel_card_img_style: {
+        width: moderateScale(189),
+        height: moderateVerticalScale(39.5),
+    },
+    image_view:{
+        alignItems: 'center',
+        marginTop: moderateVerticalScale(11),
+    },
+    // image: {
+    //     width: moderateScale(165),
+    //     height: moderateVerticalScale(180),
+    //     borderRadius: moderateScale(189 / 12),
+    // },
+    modal_cancel_text_view: {
+        width: moderateScale(230),
         alignSelf: 'center',
     },
     header_text: {
@@ -326,8 +523,8 @@ export default styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: moderateVerticalScale(10),
         fontFamily: 'Lato-Regular',
-        fontSize: scale(5),
-        letterSpacing: 1,
+        fontSize: scale(6),
+        letterSpacing: 0.5,
         color: '#fff',
     },
     Cancel_line: {
@@ -341,9 +538,11 @@ export default styles = StyleSheet.create({
     keep_btn_text: {
         textAlign: 'center',
         fontFamily: 'Lato-Regular',
+        letterSpacing: 0.5,
         color: '#fff'
     },
     cancel_btn_text: {
+        letterSpacing: 0.5,
         textAlign: 'center',
         fontFamily: 'Lato-Regular',
         color: '#000'
@@ -353,7 +552,7 @@ export default styles = StyleSheet.create({
         marginTop: moderateVerticalScale(84),
         marginBottom: moderateVerticalScale(29.2),
     },
-    off_view: {
+    btn_view: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
@@ -374,7 +573,7 @@ export default styles = StyleSheet.create({
         letterSpacing: 0.5,
         marginTop: moderateVerticalScale(10),
         fontFamily: 'Lato-Regular',
-        fontSize: scale(5),
+        fontSize: scale(5.5),
         color: '#fff'
     },
 
