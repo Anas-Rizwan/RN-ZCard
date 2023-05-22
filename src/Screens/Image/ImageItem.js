@@ -35,13 +35,17 @@ const ImageItem = ({ item, currentIndex, key }) => {
 
                             <View>
                                 <View style={styles.pricebox}>
-                                    <Text style={{ color: 'white' }}>{item.price}</Text>
+                                    <Text style={{
+                                        color: 'white',
+                                        
+                                    }}>{item.price}</Text>
                                     <Image source={item.logo} style={{
+                                    marginRight: moderateScale(45),
                                         width: moderateScale(56),
                                         height: moderateVerticalScale(20),
                                     }} />
                                 </View>
-                                <Pagination item={item} currentIndex={currentIndex} />
+                                {/* <Pagination item={item} currentIndex={currentIndex} /> */}
                             </View>
 
                         </View>

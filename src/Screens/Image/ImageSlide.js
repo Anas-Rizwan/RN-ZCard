@@ -1,15 +1,18 @@
-import { Dimensions, FlatList, Text, TouchableOpacity, View, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
+import { Dimensions, FlatList, Text, TouchableOpacity, View, Image, ScrollView } from 'react-native'
 import ImageData from './ImageData'
 import ImageItem from './ImageItem'
 import { moderateScale, moderateVerticalScale, scale } from 'react-native-size-matters';
 // import style from './style';
 import styles from './style'
+import { FlatListSlider } from 'react-native-flatlist-slider';
+// import SwiperFlatList from 'react-native-swiper-flatlist';
+import Swiper from 'react-native-swiper'
+
 // style
 
 const { height, width } = Dimensions.get('window');
 const ImageSlide = () => {
-
     const [currentIndex, setCurrentIndex] = useState(0);
     return (
         <View style={styles.container}>
@@ -29,79 +32,38 @@ const ImageSlide = () => {
                 }}>JUST FOR ME</Text>
             </View>
             <Image source={require('../../Assets/img_right.png')} style={styles.bg_img_right} />
-            <Text style={styles.bg_text}>MEMBERSHIP</Text>
+            {/* <Text style={styles.bg_text}>MEMBERSHIP</Text> */}
             <Image source={require('../../Assets/img_left.png')} style={styles.bg_img_left} />
-
-            {/* <View >
-                <FlatList
-                    data={ImageData}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item, index }) => {
-                        console.log('currentIndex', currentIndex);
-                        return (
-                            <>
-                                <View style={{
-                                    // marginVertical: moderateVerticalScale(70),
-                                    marginTop: moderateVerticalScale(31),
-                                    // marginBottom: moderateVerticalScale(70),
-                                    // backgroundColor: 'green',
-                                }}>
-
-                                    <View >
-                                        <FlatList
-
-                                            data={item.newData}
-                                            renderItem={({ item }) => <ImageItem item={item} currentIndex={currentIndex} />}
-                                            horizontal
-                                            showsHorizontalScrollIndicator={false}
-                                            pagingEnabled
-                                            onScroll={e => {
-                                                const x = e.nativeEvent.contentOffset.x;
-                                                console.log((x / width).toFixed(0));
-                                                setCurrentIndex((x / width).toFixed(0));
-                                            }}
-                                        />
-                                    </View>
-                                    <TouchableOpacity activeOpacity={.85} onPress={() => alert(index)} >
-                                        <View style={styles.bottom_btn_view}>
-                                            <View style={styles.btn_view}>
-                                                <Text style={styles.btn_text}>£25.00 GBP</Text>
-                                                <Text style={styles.btn_text}>BUY ENTRY NOW</Text>
-                                            </View>
-                                            <Text style={styles.btn_end_text}>#ZM7861234567</Text>
-
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-
-                            </>
-                        )
-                    }}
-                />
-            </View> */}
             <ScrollView>
                 {
                     ImageData.map((val, i) => {
-                        console.log(currentIndex);
+                        // console.log(currentIndex);
                         return (
                             <>
-                                <View   style={{
-                                    marginVertical: 20,
-                                }}>
+                                <View
+                                    key={val.id}
+                                    style={{
+                                        marginVertical: 20,
+                                    }}>
                                     <View >
-                                        <FlatList
-
+                                        <FlatListSlider
                                             data={val.newData}
-                                            renderItem={({ item }) => <ImageItem item={item} currentIndex={currentIndex} />}
-                                            horizontal
-                                            showsHorizontalScrollIndicator={false}
-                                            pagingEnabled
-                                            onScroll={e => {
-                                                const x = e.nativeEvent.contentOffset.x;
-                                                console.log((x / width).toFixed(0));
-                                                setCurrentIndex((x / width).toFixed(0));
+                                            timer={2000}
+                                            // autoscroll={false}
+                                            loop={false}
+                                            component={<ImageItem />}
+                                            indicatorContainerStyle={{ position: 'absolute', bottom: 30, right: 30, marginBottom: moderateVerticalScale(10), }}
+                                            indicatorActiveColor={'#BE9F56'}
+                                            indicatorInActiveColor={'gray'}
+                                            indicatorActiveWidth={30}
+                                            animation
+                                            indicatorStyle={{
+                                                width: 28,
+                                                height: 2,
+                                                // marginLeft: moderateScale(30),
                                             }}
                                         />
+
                                     </View>
                                     <TouchableOpacity activeOpacity={.85} onPress={() => alert(i)}>
                                         <View style={styles.bottom_btn_view}>
@@ -119,6 +81,165 @@ const ImageSlide = () => {
                     })
                 }
             </ScrollView>
+            {/* <ScrollView>
+                {
+                    ImageData.map((value, index) => {
+                        return (
+                            value.newData.map((item, index) => {
+                                return (
+                                    <View>
+                                        <Swiper style={styles.wrapper} showsButtons={true}>
+                                            <ImageItem item={item} />
+                                           
+                                        </Swiper>
+                                        <TouchableOpacity activeOpacity={.85} onPress={() => alert(index)} >
+                                            <View style={styles.bottom_btn_view}>
+                                                <View style={styles.btn_view}>
+                                                    <Text style={styles.btn_text}>£25.00 GBP</Text>
+                                                    <Text style={styles.btn_text}>BUY ENTRY NOW</Text>
+                                                </View>
+                                                <Text style={styles.btn_end_text}>#ZM7861234567</Text>
+
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            })
+                        )
+                    })
+                }
+            </ScrollView> */}
+            {/* <FlatListSlider
+                data={ImageData}
+                timer={5000}
+                autoscroll={false}
+                loop={false}
+                component={<ImageItem />}
+                indicatorContainerStyle={{ position: 'absolute', bottom: 30, right: 30, marginBottom: moderateVerticalScale(10), }}
+                indicatorActiveColor={'#BE9F56'}
+                indicatorInActiveColor={'gray'}
+                indicatorActiveWidth={30}
+                animation
+                indicatorStyle={{
+                    width: 28,
+                    height: 2,
+                    // marginLeft: moderateScale(30),
+                }}
+            /> */}
+
+            {/* <FlatListSlider
+                    data={ImageData}
+                    width={275}
+                    // timer={5000}
+                    autoscroll={false}
+                    loop={false}
+                    timer={0}
+                    component={<ImageItem />}
+                    // onPress={item => alert(JSON.stringify(item))}
+                    indicatorActiveWidth={40}
+                    contentContainerStyle={{ paddingHorizontal: 16 }}
+                    // showPagination
+                /> */}
+            {/* <SwiperFlatList
+                    // autoplay
+                    // autoplayDelay={2}
+                    // autoplayLoop
+                    // index={2}
+                    data={ImageData}
+                    renderItem={({ item }) => <ImageItem item={item} currentIndex={currentIndex} />}
+                // renderItem={({ item }) => (
+                //     <View style={[styles.child, { backgroundColor: item }]}>
+                //         <Text style={styles.text}>{item}</Text>
+                //     </View>
+                // )}
+                /> */}
+            {/* <FlatList
+                    data={ImageData}
+                    renderItem={({ item }) => <ImageItem item={item} currentIndex={currentIndex} />}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    pagingEnabled
+                    onScroll={e => {
+                        const x = e.nativeEvent.contentOffset.x;
+                        console.log((x / width).toFixed(0));
+                        setCurrentIndex((x / width).toFixed(0));
+                    }}
+                /> */}
+
+            {/* <TouchableOpacity activeOpacity={.85} onPress={() => alert(index)} >
+                <View style={styles.bottom_btn_view}>
+                    <View style={styles.btn_view}>
+                        <Text style={styles.btn_text}>£25.00 GBP</Text>
+                        <Text style={styles.btn_text}>BUY ENTRY NOW</Text>
+                    </View>
+                    <Text style={styles.btn_end_text}>#ZM7861234567</Text>
+
+                </View>
+            </TouchableOpacity> */}
+            {/* <View >
+                <FlatList
+                    data={ImageData}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({ item, index }) => {
+                        console.log('currentIndex', currentIndex);
+                        return (
+                            <> */}
+            {/* <View style={{
+                                    // marginVertical: moderateVerticalScale(70),
+                                    marginTop: moderateVerticalScale(31),
+                                    // marginBottom: moderateVerticalScale(70),
+                                    // backgroundColor: 'green',
+                                }}> */}
+
+            {/* <View > */}
+            {/* <FlatListSlider
+                                            data={item.newData}
+                                            timer={2000}
+                                            loop={false}
+                                            component={<ImageItem />}
+                                            indicatorContainerStyle={{ position: 'absolute', bottom: 30 }}
+                                            indicatorActiveColor={'#BE9F56'}
+                                            indicatorInActiveColor={'gray'}
+                                            indicatorActiveWidth={30}
+                                            indicatorInActiveWidth={30}
+                                            animation
+                                        // onPress={item => alert(JSON.stringify(item))}
+                                        // indicatorActiveWidth={40}
+                                        // contentContainerStyle={{ paddingHorizontal: 16 }}
+                                        // showPagination
+                                        /> */}
+            {/* <FlatList
+
+                                            data={item.newData}
+                                            renderItem={({ item }) => <ImageItem item={item} currentIndex={currentIndex} />}
+                                            horizontal
+                                            showsHorizontalScrollIndicator={false}
+                                            pagingEnabled
+                                            onScroll={e => {
+                                                const x = e.nativeEvent.contentOffset.x;
+                                                console.log((x / width).toFixed(0));
+                                                setCurrentIndex((x / width).toFixed(0));
+                                            }}
+                                        /> */}
+            {/* </View> */}
+            {/* <TouchableOpacity activeOpacity={.85} onPress={() => alert(index)} >
+                                        <View style={styles.bottom_btn_view}>
+                                            <View style={styles.btn_view}>
+                                                <Text style={styles.btn_text}>£25.00 GBP</Text>
+                                                <Text style={styles.btn_text}>BUY ENTRY NOW</Text>
+                                            </View>
+                                            <Text style={styles.btn_end_text}>#ZM7861234567</Text>
+
+                                        </View>
+                                    </TouchableOpacity> */}
+            {/* </View> */}
+            {/* 
+                            </>
+                        )
+                    }}
+                />
+            </View> */}
+
             {/* <ScrollView>
                 <View style={{
                     marginTop: moderateVerticalScale(37),

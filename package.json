@@ -10,10 +10,19 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-camera-roll/camera-roll": "^5.4.0",
+    "deprecated-react-native-prop-types": "^4.1.0",
     "react": "18.2.0",
     "react-native": "0.71.7",
+    "react-native-camera": "^4.2.1",
+    "react-native-camera-kit": "^13.0.0",
     "react-native-countdown-component": "^2.7.1",
+    "react-native-flatlist-slider": "^1.0.6",
+    "react-native-image-crop-picker": "^0.39.0",
+    "react-native-permissions": "^3.8.0",
     "react-native-size-matters": "^0.4.0",
+    "react-native-swiper": "^1.6.0",
+    "react-native-swiper-flatlist": "^3.2.2",
     "react-native-webview": "^12.0.2"
   },
   "devDependencies": {

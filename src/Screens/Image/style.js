@@ -39,17 +39,20 @@ export default styles = StyleSheet.create({
         // width: '100%',
         flexDirection: 'row',
         alignItems: 'flex-end',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
     },
     progressview:{
-       
-        marginRight: moderateScale(60),
+        marginLeft: moderateScale(22),
     },
     pricebox: {
+        marginBottom: moderateVerticalScale(10),
         marginTop: moderateVerticalScale(20),
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        width:'68%',
+        marginRight: 43,
+        alignSelf: 'flex-end',
     },
     bottom_text_view: {
         flexDirection: 'row',
