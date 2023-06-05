@@ -172,7 +172,7 @@ const MembershipModal = ({ modalitem, setModalVisible, setDetail }) => {
                             <View >
                                 <Image source={modalitem.off_img} style={{
                                     width: modalitem.id === 1 ? moderateScale(122) : moderateScale(142),
-                                    height: modalitem.id === 1 ? moderateVerticalScale(183) : moderateVerticalScale(189),
+                                    height: modalitem.id === 1 ? moderateVerticalScale(172) : moderateVerticalScale(180),
                                 }} />
                             </View>
                             <View>

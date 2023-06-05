@@ -42,9 +42,9 @@ const MembershipCard = ({ showModal }) => {
         <View style={styles.container}>
 
             <View style={styles.Header_view}>
-                <Image source={require('../../Assets/arrow.png')} tintColor="black" style={{ marginLeft: moderateScale(25), }} />
-                <Image source={require('../../Assets/logo_zimo.png')} tintColor="black" />
-                <Image source={require('../../Assets/bag.png')} style={{ marginRight: moderateScale(25), }} />
+                <Image source={require('../../Assets/arrow.png')} tintColor="black" style={{ marginLeft: moderateScale(25), height: moderateVerticalScale(15), width: moderateScale(20), }} />
+                <Image source={require('../../Assets/logo_zimo.png')} tintColor="black" style={{  height: moderateVerticalScale(50), width: moderateScale(50), }} />
+                <Image source={require('../../Assets/bag.png')} style={{ marginRight: moderateScale(25), height: moderateVerticalScale(19), width: moderateScale(16), }} />
             </View>
             <Image source={require('../../Assets/img_right.png')} style={styles.bg_img_right} />
             <Text style={styles.bg_text}>MEMBERSHIP</Text>

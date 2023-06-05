@@ -95,6 +95,7 @@ export default styles = StyleSheet.create({
         marginLeft: moderateScale(14),
     },
     logo_img_style: {
+
         marginTop: moderateVerticalScale(21),
         width: moderateScale(106),
         height: moderateVerticalScale(26),
@@ -106,14 +107,14 @@ export default styles = StyleSheet.create({
     },
     zimo_img_style: {
         width: moderateScale(200),
-        height: moderateVerticalScale(114),
+        height: moderateVerticalScale(107),
     },
     card_img_view_style: {
         marginTop: moderateVerticalScale(9.7),
     },
     card_img_style: {
         width: moderateScale(300),
-        height: moderateVerticalScale(65),
+        height: moderateVerticalScale(61),
     },
     Card_Discount_Text: {
         color: "#000000",
@@ -218,7 +219,7 @@ export default styles = StyleSheet.create({
     },
     modal_zimo_img_style: {
         width: moderateScale(117),
-        height: moderateVerticalScale(68),
+        height: moderateVerticalScale(61),
     },
     modal_card_img_view_style: {
         marginTop: moderateVerticalScale(9.7),
@@ -265,10 +266,11 @@ export default styles = StyleSheet.create({
     },
     modal_bottom_card_top_view_style: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        // alignItems: 'center',
+        justifyContent: 'flex-end',
+    
     },
     modal_bottom_logo_img_style: {
+
         marginTop: moderateVerticalScale(9),
         width: moderateScale(45),
         height: moderateVerticalScale(11),
@@ -280,7 +282,7 @@ export default styles = StyleSheet.create({
     },
     modal_bottom_zimo_img_style: {
         width: moderateScale(86),
-        height: moderateVerticalScale(48),
+        height: moderateVerticalScale(46),
     },
     modal_bottom_card_img_view_style: {
         marginTop: moderateVerticalScale(9.7),
@@ -341,7 +343,8 @@ export default styles = StyleSheet.create({
     },
     detail_card_top_view_style: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
+        // justifyContent: 'space-between',
         // alignItems: 'center',
     },
     detail_logo_img_style: {

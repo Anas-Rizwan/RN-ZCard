@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimensions, FlatList, Text, TouchableOpacity, View, Image, ScrollView } from 'react-native'
+import { Dimensions, FlatList, Text, TouchableOpacity, View, Image, ScrollView, ImageBackground } from 'react-native'
 import ImageData from './ImageData'
 import ImageItem from './ImageItem'
 import { moderateScale, moderateVerticalScale, scale } from 'react-native-size-matters';
@@ -13,7 +13,11 @@ import Swiper from 'react-native-swiper'
 
 const { height, width } = Dimensions.get('window');
 const ImageSlide = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleIndexChanged = (index) => {
+        setActiveIndex(index);
+    }
     return (
         <View style={styles.container}>
             <View style={styles.Header_view}>
@@ -34,7 +38,7 @@ const ImageSlide = () => {
             <Image source={require('../../Assets/img_right.png')} style={styles.bg_img_right} />
             {/* <Text style={styles.bg_text}>MEMBERSHIP</Text> */}
             <Image source={require('../../Assets/img_left.png')} style={styles.bg_img_left} />
-            <ScrollView>
+            {/* <ScrollView>
                 {
                     ImageData.map((val, i) => {
                         // console.log(currentIndex);
@@ -80,6 +84,118 @@ const ImageSlide = () => {
                         )
                     })
                 }
+            </ScrollView> */}
+            {/* <ScrollView>
+                {ImageData.map((val, i) => {
+                    return (
+                        <View key={i}>
+                            <FlatListSlider
+                                data={val.newData}
+                                timer={2000}
+                                loop={false}
+                                component={<ImageItem />}
+                                indicatorContainerStyle={{
+                                    position: 'absolute',
+                                    bottom: 30,
+                                    right: 30,
+                                    marginBottom: moderateVerticalScale(10),
+                                }}
+                                indicatorActiveColor={'#BE9F56'}
+                                indicatorInActiveColor={'gray'}
+                                indicatorActiveWidth={30}
+                                animation
+                                indicatorStyle={{
+                                    width: 28,
+                                    height: 2,
+                                }}
+                            />
+                            <TouchableOpacity activeOpacity={.85} onPress={() => alert(i)}>
+                                <View style={styles.bottom_btn_view}>
+                                    <View style={styles.btn_view}>
+                                        <Text style={styles.btn_text}>£25.00 GBP</Text>
+                                        <Text style={styles.btn_text}>BUY ENTRY NOW</Text>
+                                    </View>
+                                    <Text style={styles.btn_end_text}>#ZM7861234567</Text>
+
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    );
+                })}
+            </ScrollView> */}
+            {/* <ScrollView>
+                {ImageData.map((val, i) => {
+                    return (
+                        <View key={val.id}>
+                            <View style={styles.cardContainer}>
+                                <Text style={styles.cardTitle}>{val.title}</Text>
+                                <Text style={styles.cardDescription}>{val.description}</Text>
+                            </View>
+
+                            <View style={styles.imageSliderContainer}>
+                                <FlatListSlider
+                                    data={val.newData}
+                                    timer={2000}
+                                    loop={false}
+                                    component={<ImageItem />}
+                                    indicatorContainerStyle={styles.indicatorContainer}
+                                    indicatorActiveColor={'#BE9F56'}
+                                    indicatorInActiveColor={'gray'}
+                                    indicatorActiveWidth={30}
+                                    indicatorInActiveWidth={30}
+                                    currentIndex={currentIndex}
+                                    onPress={handleSwipe}
+                                />
+                            </View>
+
+                            <TouchableOpacity activeOpacity={0.85} onPress={() => alert(i)}>
+                                <View style={styles.buttonContainer}>
+                                    <Text style={styles.buttonText}>BUY NOW</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    );
+                })}
+            </ScrollView> */}
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                nestedScrollEnabled={true}
+                contentContainerStyle={{ flexGrow: 1 }}
+                style={styles.ScrollView}
+            >
+                {ImageData.map((Justforyouitem, index) => {
+                    // const isIdIncluded = Favourites.includes(Justforyouitem?.id);
+                    return (
+                        <TouchableOpacity
+                            key={Justforyouitem.id}
+                            style={{
+                                alignSelf: 'center',
+                                width: '98%',
+                                marginVertical: '2%',
+                                backgroundColor: 'green'
+                            }}
+                        >
+                            <View style={styles.swipperview2}>
+                                <Swiper
+                                    autoplay={true}
+                                    showsPagination={true}
+                                    loop={false}
+                                    autoplayTimeout={2}
+                                    showsButtons={false}
+                                    onIndexChanged={handleIndexChanged}
+                                    index={activeIndex}
+                                    activeDotStyle={styles.MobileEndingSoonactiveDot}
+                                    dotStyle={styles.MobileEndingSoonDot}
+                                >
+                                    {Justforyouitem.newData.map((image, imgIndex) => (
+                                        <ImageItem item={image} />
+                                    ))}
+                                </Swiper>
+                            </View>
+                        </TouchableOpacity>
+                    );
+                })}
+                <View style={{ marginBottom: '15%' }}></View>
             </ScrollView>
             {/* <ScrollView>
                 {

@@ -1,5 +1,4 @@
 //import liraries
-import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import React, { useEffect, useState } from 'react';
 import {
     View, Text, StyleSheet, TouchableOpacity, Image, Platform, PermissionsAndroid, FlatList
@@ -10,16 +9,12 @@ import ImagePicker from 'react-native-image-crop-picker'
 // create a component
 const ImagePick = () => {
 
-    const [value, setvalue] = useState([])
     const [image, setimage] = useState([])
 
     useEffect(() => {
         hasAndroidPermission()
     }, [])
-    // useEffect(() => {
-    //     console.log("value wala chala");
 
-    // }, [value])
 
     const hasAndroidPermission = async () => {
         const permission = Platform.Version >= 33 ? PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES : PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
@@ -28,7 +23,6 @@ const ImagePick = () => {
         if (hasPermission) {
             return true;
         }
-
         const status = await PermissionsAndroid.request(permission);
         return status === 'granted';
     }
@@ -52,31 +46,17 @@ const ImagePick = () => {
                         data: image.data
                     })
                 })
-                // setimage([...imageList])
                 setimage((preValue) => {
                     return [...preValue, ...imageList];
                 }
                 )
-                // console.log(response);
             })
             .catch(err => {
                 console.log("Error", err.message);
             })
     }
-    // const handleButtonPress = () => {
-    //     CameraRoll.getPhotos({
-    //         first: 3,
-    //         assetType: 'Photos',
-    //     })
-    //         .then(r => {
-    //             console.log(JSON.stringify(r.edges));
-    //             setimage(r.edges);
-    //         })
-    //         .catch((err) => {
-    //             console.log("Error", err.message);
-    //         });
-    //     setshow(false)
-    // };
+
+    
     return (
         <View style={styles.container}>
             <TouchableOpacity activeOpacity={0.8} style={styles.btn_view} onPress={() => OpenImagePicker()}>
@@ -89,8 +69,8 @@ const ImagePick = () => {
                 renderItem={({ item, index }) => {
                     // console.log("item", item);
                     return (
-                    
-                            index % 2 != 0 ?
+
+                        index % 2 != 0 ?
                             < View >
                                 <Image source={{ uri: item.path }} style={styles.single_img} />
                             </View>
@@ -99,7 +79,7 @@ const ImagePick = () => {
                                 <Image source={{ uri: item.path }} style={styles.double_img} />
                                 <Image source={{ uri: item.path }} style={styles.double_img} />
                             </View>
-                     
+
                     )
                 }}
             />

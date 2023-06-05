@@ -23,8 +23,10 @@ const CardComponent = ({
             style={card_view_style}
         >
             <View style={card_top_view_style}>
-                <Image source={off_img} style={off_img_style} />
-                <Image source={logo_img} style={logo_img_style} />
+                {off_img && <Image source={off_img} style={off_img_style} />}
+                {logo_img && <Image source={logo_img} style={logo_img_style} />}
+                {/* <Image source={off_img} style={off_img_style} />
+                <Image source={logo_img} style={logo_img_style} /> */}
             </View>
 
             <View style={zimo_img_view_style}>

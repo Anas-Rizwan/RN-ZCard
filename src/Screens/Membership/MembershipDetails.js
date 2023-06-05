@@ -15,7 +15,7 @@ const MembershipDetails = ({ modalitem, changeState }) => {
         <View style={styles.signup_container}>
             <View style={styles.Header_view}>
                 <TouchableOpacity onPress={() => { changeState(false) }}>
-                    <Image source={require('../../Assets/arrow.png')} tintColor="black" style={{ marginLeft: moderateScale(25), }} />
+                    <Image source={require('../../Assets/arrow.png')} tintColor="black" style={{ marginLeft: moderateScale(25), height: moderateVerticalScale(15), width: moderateScale(20), }} />
                 </TouchableOpacity>
                 <Image source={require('../../Assets/logo_zimo.png')} tintColor="black" />
                 <Image source={require('../../Assets/bag.png')} style={{ marginRight: moderateScale(25), }} />
@@ -35,20 +35,20 @@ const MembershipDetails = ({ modalitem, changeState }) => {
                 </View>
                 <View style={styles.signup_card_view}>
                     <View>
-                    <CardComponent
-                                    // off_img={modalitem.number_img}
-                                    logo_img={modalitem.logo_img}
-                                    zimo_img={modalitem.zimo_img}
-                                    card_img={modalitem.card_img}
-                                    card_view_style={styles.detail_card_view_style}
-                                    card_top_view_style={styles.detail_card_top_view_style}
-                                    // off_img_style={modalitem.id == 1 ? styles.detail_off_10img_style : styles.detail_off_20img_style}
-                                    logo_img_style={styles.detail_logo_img_style}
-                                    zimo_img_view_style={styles.detail_zimo_img_view_style}
-                                    zimo_img_style={styles.detail_zimo_img_style}
-                                    card_img_view_style={styles.detail_card_img_view_style}
-                                    card_img_style={styles.detail_card_img_style}
-                                />
+                        <CardComponent
+                            // off_img={modalitem.number_img}
+                            logo_img={modalitem.logo_img}
+                            zimo_img={modalitem.zimo_img}
+                            card_img={modalitem.card_img}
+                            card_view_style={styles.detail_card_view_style}
+                            card_top_view_style={styles.detail_card_top_view_style}
+                            // off_img_style={modalitem.id == 1 ? styles.detail_off_10img_style : styles.detail_off_20img_style}
+                            logo_img_style={styles.detail_logo_img_style}
+                            zimo_img_view_style={styles.detail_zimo_img_view_style}
+                            zimo_img_style={styles.detail_zimo_img_style}
+                            card_img_view_style={styles.detail_card_img_view_style}
+                            card_img_style={styles.detail_card_img_style}
+                        />
                         {/* <Image source={modalitem.detail_img} style={styles.signup_card_img} /> */}
                     </View>
                     <View>
